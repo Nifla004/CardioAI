@@ -1,8 +1,15 @@
-## CardioAI: Anomaly Detection in ECG Data
+## CardioAI+: Explainable Cardiac Risk Prediction using Machine Learning and Explainable AI
 CardioAI is a research-oriented project for detecting anomalies in ECG-like data using Isolation Forest and Autoencoder models. The project is inspired by a real-life case of unexplained pericardial effusion and explores AI/ML techniques for cardiac anomaly detection.
 
 ### Motivation
-Early detection of cardiac anomalies is critical for preventing severe cardiovascular events. Traditional ECG analysis requires expert interpretation. CardioAI automates anomaly detection, making it useful for clinical decision support and research.
+CardioAI+ is an explainable machine learning framework for early cardiac risk prediction and anomaly detection. The project investigates multiple machine learning models for identifying abnormal cardiac patterns while providing transparent explanations for predictions using Explainable AI (XAI). Inspired by a real-world medical emergency involving unexplained pericardial effusion, CardioAI+ aims to support trustworthy clinical decision-making through interpretable AI.
+
+### Objectives 
+* Detect cardiac anomalies using machine learning
+* Compare multiple ML algorithms
+* Improve clinical interpretability using SHAP
+* Build an interactive Streamlit dashboard
+* Support future healthcare AI research
 
 ### Features
 - Synthetic ECG-like data generation for normal and anomalous patterns.
