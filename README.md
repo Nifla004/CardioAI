@@ -1,64 +1,177 @@
-## CardioAI+: Explainable Cardiac Risk Prediction using Machine Learning and Explainable AI
-CardioAI is a research-oriented project for detecting anomalies in ECG-like data using Isolation Forest and Autoencoder models. The project is inspired by a real-life case of unexplained pericardial effusion and explores AI/ML techniques for cardiac anomaly detection.
+# CardioAI: Cardiac Anomaly Detection using Isolation Forest and Autoencoder
 
-### Motivation
-CardioAI+ is an explainable machine learning framework for early cardiac risk prediction and anomaly detection. The project investigates multiple machine learning models for identifying abnormal cardiac patterns while providing transparent explanations for predictions using Explainable AI (XAI). Inspired by a real-world medical emergency involving unexplained pericardial effusion, CardioAI+ aims to support trustworthy clinical decision-making through interpretable AI.
+CardioAI is a research-oriented machine learning project for detecting cardiac anomalies from ECG-inspired clinical data using unsupervised anomaly detection techniques.
 
-### Objectives 
-* Detect cardiac anomalies using machine learning
-* Compare multiple ML algorithms
-* Improve clinical interpretability using SHAP
-* Build an interactive Streamlit dashboard
-* Support future healthcare AI research
+The project was inspired by a real-life case of unexplained pericardial effusion and investigates how artificial intelligence can assist in identifying abnormal cardiac patterns when conventional diagnosis is challenging.
 
-### Features
-- Synthetic ECG-like data generation for normal and anomalous patterns.
-- Isolation Forest for unsupervised anomaly detection.
-- Autoencoder for reconstructing normal ECG patterns and detecting anomalies.
-- Evaluation metrics: Precision, Recall, F1-Score, ROC-AUC.
-- Visualizations of anomaly scores and reconstruction errors.
+---
 
-### Folder Structure
-CardioAI/
-├─ notebooks/ # Colab/Jupyter notebooks
-│ └─ CardioAI_notebook.ipynb
-├─ paper/ # Research paper PDF
-│ └─ CardioAI_research_paper.pdf
-├─ README.md # Project overview
+# Motivation
 
-### How to Run
-1. Open `CardioAI_notebook.ipynb` in Google Colab or Jupyter.  
-2. Run all cells sequentially to generate metrics, results, and plots.  
-3. Modify dataset or parameters if needed.  
-4. Review comparison tables and visualization outputs.
+Early detection of cardiac abnormalities can significantly improve clinical outcomes. Traditional diagnostic methods may fail to identify rare or unexplained cardiac conditions in their early stages.
 
-### Dependencies
-- Python 3.x  
-- numpy, pandas, matplotlib, scikit-learn, tensorflow (keras)  
-Install missing packages using:
+CardioAI explores the use of unsupervised machine learning models capable of learning normal cardiac behaviour and detecting anomalous patterns without requiring extensive labelled datasets.
+
+---
+
+# Objectives
+
+- Detect cardiac anomalies using Artificial Intelligence.
+- Compare two anomaly detection models.
+- Evaluate model performance using standard metrics.
+- Demonstrate the applicability of AI for early cardiac anomaly detection.
+- Provide a reproducible research framework for future healthcare AI studies.
+
+---
+
+# Models Used
+
+## Isolation Forest
+
+- Unsupervised anomaly detection
+- Tree-based ensemble algorithm
+- Detects abnormal cardiac patterns using anomaly scores
+
+## Autoencoder
+
+- Deep learning reconstruction model
+- Learns normal cardiac behaviour
+- Detects anomalies using reconstruction error
+
+---
+
+# Dataset
+
+The project uses ECG-inspired clinical data generated for anomaly detection experiments.
+
+Normal and anomalous cardiac samples are prepared for evaluating unsupervised learning methods.
+
+---
+
+# Methodology
+
+1. Data preprocessing
+2. Feature scaling
+3. Isolation Forest training
+4. Autoencoder training
+5. Anomaly score calculation
+6. Reconstruction error analysis
+7. Model evaluation
+8. Performance comparison
+
+---
+
+# Evaluation Metrics
+
+The models are evaluated using:
+
+- Precision
+- Recall
+- F1 Score
+- ROC-AUC
+
+---
+
+# Results
+
+| Model | Precision | Recall | F1 Score | ROC-AUC |
+|--------|----------:|-------:|---------:|---------:|
+| Isolation Forest | 0.943 | 1.000 | 0.971 | 0.998 |
+| Autoencoder | 0.877 | 1.000 | 0.935 | 0.996 |
+
+### Observation
+
+- Isolation Forest achieved the highest overall performance.
+- Autoencoder achieved perfect recall, detecting all anomalous samples.
+- Both models demonstrated excellent capability for cardiac anomaly detection.
+
+---
+
+# Visualizations
+
+The project includes:
+
+- Isolation Forest anomaly score distribution
+- Autoencoder reconstruction error distribution
+- ROC Curve
+- Confusion Matrix
+- Performance comparison charts
+
+---
+
+# Project Structure
+
+```
+CardioAI
+│
+├── notebooks/
+│   └── CardioAI.ipynb
+│
+├── paper/
+│   └── CardioAI_Research_Paper.pdf
+│
+├── figures/
+│
+├── README.md
+│
+└── LICENSE
+```
+
+---
+
+# Installation
+
+Install the required packages:
+
+```bash
 pip install numpy pandas matplotlib scikit-learn tensorflow
+```
 
-### Methodology
-- **Synthetic Data:** Generated using Gaussian distributions for normal and anomalous ECG-like signals.  
-- **Isolation Forest:** Unsupervised model trained on full dataset. Predictions converted (-1 → anomaly, 1 → normal). Evaluated with precision, recall, F1-score, ROC-AUC.  
-- **Autoencoder:** Feedforward neural network trained only on normal data. Reconstruction error computed for all samples. Threshold = mean + 3*std of normal error. Samples above threshold classified as anomalies.  
-- **Comparison:** Both models evaluated on same dataset; results compared via metrics and visualizations.
+---
 
-### Results
-| Model             | Precision | Recall | F1-Score | ROC-AUC |
-|------------------|-----------|--------|----------|---------|
-| Isolation Forest  | 0.943     | 1.000  | 0.971    | 0.998   |
-| Autoencoder       | 0.877     | 1.000  | 0.935    | 0.996   |
+# How to Run
 
-**Observation:** Both models detect anomalies effectively. Isolation Forest has slightly higher precision, Autoencoder achieves perfect recall. Visualizations show clear separation between normal and anomalous samples.
+1. Open the notebook in Google Colab or Jupyter Notebook.
+2. Install the required dependencies.
+3. Run all cells sequentially.
+4. Review the evaluation metrics and visualizations.
 
-### Visualizations
-- Isolation Forest: Histogram of anomaly scores.  
-- Autoencoder: Histogram of reconstruction errors with threshold line.
+---
 
-### References
-- [Isolation Forest Paper](https://cs.nju.edu.cn/zhouzh/zhouzh.files/publication/icdm08b.pdf)  
-- [Autoencoder-based Anomaly Detection](https://arxiv.org/abs/1802.04410)
+# Future Work
 
-### Author
-Nifla Nalakath, Department of Computer Science and Engineering, Eranad Knowledge City Technical Campus (EKCTC), APJ Abdul Kalam Technological University (KTU)
+Future development will extend CardioAI into **CardioAI+**, which will include:
+
+- Explainable AI (SHAP)
+- Streamlit Clinical Dashboard
+- Clinical Decision Support
+- Batch Prediction
+- Model Comparison
+- Support for multiple heart-related datasets
+
+---
+
+# References
+
+- Isolation Forest
+- Autoencoder-based Anomaly Detection
+- Scikit-learn Documentation
+- TensorFlow/Keras Documentation
+
+---
+
+# Author
+
+**Nifla Nalakath**
+
+Department of Computer Science and Engineering
+
+Eranad Knowledge City Technical Campus (EKCTC)
+
+APJ Abdul Kalam Technological University (KTU)
+
+---
+
+## License
+
+This project is developed for academic and research purposes.
